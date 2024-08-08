@@ -52,7 +52,7 @@ def kubectl(commands):
                 logger.info(f"Converted json output: {json.loads(decoded_output)}")
             else:
                 logger.info(f"Could not convert to json, different data type returned: {type(decoded_output)}")
-
+                
         except subprocess.CalledProcessError as exc:
             output = exc.output
             if b'i/o timeout' in output and retry > 0:
@@ -63,5 +63,4 @@ def kubectl(commands):
         else:
             logger.info(output)
             return output
-
     raise Exception('Operation failed after %s attempts: %s' % maxAttempts, output)
