@@ -45,20 +45,13 @@ def kubectl(commands):
             output = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
             logger.info(f'Output: {output}')
 
-            decoded_str = output.decode('utf-8')
-            logger.info(f'Decoded string: {decoded_str}')
+            decoded_output = output.decode('utf-8')
+            logger.info(f"Decoded output: {decoded_output}")
 
-            # Split the string into individual JSON objects
-            json_objects = decoded_str.strip().split('\n')
-            logger.info(f'JSON objects: {json_objects}')
-
-            # Parse each JSON object and store in a list
-            parsed_json_list = [json.loads(obj) for obj in json_objects]
-            logger.info(f'Parsed JSON list: {parsed_json_list}')
-
-            # Print the list of parsed JSON objects
-            for log in parsed_json_list:
-                logger.info(json.dumps(log), indent=4)
+            if isinstance(decoded_output, str):
+                logger.info(f"Converted json output: {json.loads(decoded_output)}")
+            else:
+                logger.info(f"Could not convert to json, different data type returned: {type(decoded_output)}")
                 
         except subprocess.CalledProcessError as exc:
             output = exc.output
