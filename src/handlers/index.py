@@ -59,7 +59,7 @@ def kubectl(commands):
             # Print the list of parsed JSON objects
             for log in parsed_json_list:
                 logger.info(json.dumps(log), indent=4)
-
+                
         except subprocess.CalledProcessError as exc:
             output = exc.output
             if b'i/o timeout' in output and retry > 0:
