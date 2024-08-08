@@ -2,6 +2,7 @@ import json
 import logging
 import os
 import subprocess
+from typing import Dict, Optional
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -33,6 +34,23 @@ def handler(event, context):
 
     return kubectl(event["commands"])
 
+def parse_json(json_str: str) -> Optional[Dict]:
+    try:
+        return json.loads(json_str)
+    except json.JSONDecodeError:
+        json_objects = []
+
+        try:
+            for line in json_str.strip().split('\n'):
+                try:
+                    json_objects.append(json.loads(line))
+                except json.JSONDecodeError as e:
+                    logger.error(f"Failed to parse line: {line}, error: {e}")
+
+        except (TypeError, AttributeError) as e:
+            logger.error("Failed to parse json: %s" % e)
+
+        return json_objects
 
 def kubectl(commands):
     maxAttempts = 3
@@ -49,7 +67,14 @@ def kubectl(commands):
             logger.info(f"Decoded output: {decoded_output}")
 
             if isinstance(decoded_output, str):
-                logger.info(f"Converted json output: {json.loads(decoded_output)}")
+                parsed_json = parse_json(decoded_output)
+                if isinstance(parsed_json, list):
+                    for item in parsed_json:
+                        logger.info(f"{item}")
+
+                else:
+                    logger.info(f"Converted json output: {parsed_json}")
+
             else:
                 logger.info(f"Could not convert to json, different data type returned: {type(decoded_output)}")
                 
