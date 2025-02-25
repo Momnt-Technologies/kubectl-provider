@@ -6,7 +6,7 @@
     },
     {
       "name": "@types/node",
-      "version": "^16",
+      "version": "^20",
       "type": "build"
     },
     {
@@ -95,11 +95,11 @@
       "type": "build"
     },
     {
-      "name": "@aws-cdk/lambda-layer-kubectl-v25",
+      "name": "@aws-cdk/lambda-layer-kubectl-v28",
       "type": "peer"
     },
     {
-      "name": "@aws-cdk/lambda-layer-kubectl-v28",
+      "name": "@aws-cdk/lambda-layer-kubectl-v30",
       "type": "peer"
     },
     {
@@ -113,11 +113,11 @@
       "type": "peer"
     },
     {
-      "name": "@aws-cdk/lambda-layer-kubectl-v25",
+      "name": "@aws-cdk/lambda-layer-kubectl-v28",
       "type": "runtime"
     },
     {
-      "name": "@aws-cdk/lambda-layer-kubectl-v28",
+      "name": "@aws-cdk/lambda-layer-kubectl-v30",
       "type": "runtime"
     }
   ],

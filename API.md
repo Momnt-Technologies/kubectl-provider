@@ -162,8 +162,8 @@ const kubectlFunctionProps: KubectlFunctionProps = { ... }
 | <code><a href="#@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.roleArn">roleArn</a></code> | <code>string</code> | The Role ARN that is to be assumed during the EKS authentication process to access and run commands on the cluster. |
 | <code><a href="#@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC where the Kubernetes cluster is. |
 | <code><a href="#@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.additionalParams">additionalParams</a></code> | <code>aws-cdk-lib.aws_lambda.FunctionOptions</code> | Additional parameters to pass to the Lambda function. |
-| <code><a href="#@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.usev125">usev125</a></code> | <code>boolean</code> | Whether to use kubectl v1.25 or not for the lambda layer. Set this to true if your EKS cluster is 1.25+. |
-| <code><a href="#@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.usev128">usev128</a></code> | <code>boolean</code> | Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.27+. |
+| <code><a href="#@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.usev128">usev128</a></code> | <code>boolean</code> | Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.26+. |
+| <code><a href="#@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.usev130">usev130</a></code> | <code>boolean</code> | Whether to use kubectl v1.30 or not for the lambda layer. Set this to true if your EKS cluster is 1.28+. |
 
 ---
 
@@ -215,19 +215,6 @@ Additional parameters to pass to the Lambda function.
 
 ---
 
-##### `usev125`<sup>Optional</sup> <a name="usev125" id="@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.usev125"></a>
-
-```typescript
-public readonly usev125: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Whether to use kubectl v1.25 or not for the lambda layer. Set this to true if your EKS cluster is 1.25+.
-
----
-
 ##### `usev128`<sup>Optional</sup> <a name="usev128" id="@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.usev128"></a>
 
 ```typescript
@@ -237,7 +224,20 @@ public readonly usev128: boolean;
 - *Type:* boolean
 - *Default:* false
 
-Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.27+.
+Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.26+.
+
+---
+
+##### `usev130`<sup>Optional</sup> <a name="usev130" id="@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.usev130"></a>
+
+```typescript
+public readonly usev130: boolean;
+```
+
+- *Type:* boolean
+- *Default:* false
+
+Whether to use kubectl v1.30 or not for the lambda layer. Set this to true if your EKS cluster is 1.28+.
 
 ---
 

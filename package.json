@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/jest": "^27",
-    "@types/node": "^16",
+    "@types/node": "^20",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "aws-cdk-lib": "2.133.0",
@@ -50,20 +50,20 @@
     "jsii-docgen": "^8.0.14",
     "jsii-pacmak": "^1.81.0",
     "jsii-rosetta": "^5.0.7",
-    "projen": "^0.71.52",
+    "projen": "^0.91.13",
     "standard-version": "^9",
     "ts-jest": "^27",
     "typescript": "^4.4.4"
   },
   "peerDependencies": {
-    "@aws-cdk/lambda-layer-kubectl-v25": "^2.0.3",
     "@aws-cdk/lambda-layer-kubectl-v28": "^2.2.0",
+    "@aws-cdk/lambda-layer-kubectl-v30": "^2.0.4",
     "aws-cdk-lib": "^2.133.0",
     "constructs": "^10.0.5"
   },
   "dependencies": {
-    "@aws-cdk/lambda-layer-kubectl-v25": "^2.0.3",
-    "@aws-cdk/lambda-layer-kubectl-v28": "^2.2.0"
+    "@aws-cdk/lambda-layer-kubectl-v28": "^2.2.0",
+    "@aws-cdk/lambda-layer-kubectl-v30": "^2.0.4"
   },
   "keywords": [
     "cdk",
@@ -71,7 +71,7 @@
     "kubectl"
   ],
   "engines": {
-    "node": ">= 16.19.0"
+    "node": ">= 20.0.0"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",

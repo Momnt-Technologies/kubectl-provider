@@ -109,7 +109,7 @@ Object {
 }
 `;
 
-exports[`LambdaFunction Uses v1.25 support 1`] = `
+exports[`LambdaFunction Uses v1.28 support 1`] = `
 Object {
   "TestFunctionKubectlProvider08B8F324": Object {
     "DependsOn": Array [
@@ -163,7 +163,7 @@ Object {
 }
 `;
 
-exports[`LambdaFunction Uses v1.28 support 1`] = `
+exports[`LambdaFunction Uses v1.30 support 1`] = `
 Object {
   "TestFunctionKubectlProvider08B8F324": Object {
     "DependsOn": Array [
