@@ -5,7 +5,6 @@
 !/.projen/files.json
 !/.github/workflows/pull-request-lint.yml
 !/package.json
-!/LICENSE
 !/.npmignore
 logs
 *.log
@@ -33,7 +32,6 @@ jspm_packages/
 cdk.out/
 cdk.context.json
 .idea/
-!/.projenrc.js
 /test-reports/
 junit.xml
 /coverage/
@@ -42,7 +40,6 @@ junit.xml
 /dist/version.txt
 !/.github/workflows/release.yml
 !/.github/pull_request_template.md
-!/.npmrc
 !/test/
 !/tsconfig.dev.json
 !/src/
@@ -52,3 +49,4 @@ junit.xml
 .jsii
 tsconfig.json
 !/API.md
+!/.projenrc.js

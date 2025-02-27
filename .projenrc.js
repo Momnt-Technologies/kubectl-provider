@@ -4,6 +4,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   authorAddress: 'matthew.bonig@defiance.ai',
   cdkVersion: '2.133.0',
   defaultReleaseBranch: 'main',
+  licensed: false,
   depsUpgrade: false,
   homepage: 'https://defiance.ai',
   name: '@momnt-technologies/kubectl-provider',
