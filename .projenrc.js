@@ -29,7 +29,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   npmAccess: javascript.NpmAccess.PUBLIC,
   jsiiVersion: '^5.0.7',
   nodeVersion: '^20',
-  minNodeVersion: '20.0.0',
+  minNodeVersion: '20',
 
 });
 project.compileTask.exec('rm -rf lib/handlers/; mkdir lib/handlers/', { name: 'mkdir python handler' });

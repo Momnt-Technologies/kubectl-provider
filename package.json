@@ -71,7 +71,7 @@
     "kubectl"
   ],
   "engines": {
-    "node": ">= 20.0.0"
+    "node": ">= 20"
   },
   "main": "lib/index.js",
   "license": "UNLICENSED",
