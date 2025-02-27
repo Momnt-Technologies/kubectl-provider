@@ -64,7 +64,7 @@ describe('LambdaFunction', () => {
     expect(resource).toMatchSnapshot();
   });
 
-  test('Uses v1.25 support', () => {
+  test('Uses v1.30 support', () => {
     const app = new App();
     const stack = new Stack(app, 'test');
 
@@ -77,7 +77,7 @@ describe('LambdaFunction', () => {
       roleArn: 'somerolearn',
       clusterName: 'somecluster',
       vpc: testVpc,
-      usev125: true,
+      usev130: true,
     });
     const assert = Template.fromStack(stack);
 
@@ -98,7 +98,7 @@ describe('LambdaFunction', () => {
       roleArn: 'somerolearn',
       clusterName: 'somecluster',
       vpc: testVpc,
-      usev125: true,
+      usev128: true,
     });
     const assert = Template.fromStack(stack);
 

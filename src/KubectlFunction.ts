@@ -1,7 +1,7 @@
 import * as path from 'path';
 
-import { KubectlV25Layer } from '@aws-cdk/lambda-layer-kubectl-v25';
 import { KubectlV28Layer } from '@aws-cdk/lambda-layer-kubectl-v28';
+import { KubectlV30Layer } from '@aws-cdk/lambda-layer-kubectl-v30';
 import { CfnOutput, Duration } from 'aws-cdk-lib';
 import { IVpc, SubnetType } from 'aws-cdk-lib/aws-ec2';
 import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
@@ -16,13 +16,13 @@ import { Construct } from 'constructs';
  */
 export interface KubectlFunctionProps {
   /**
-   * Whether to use kubectl v1.25 or not for the lambda layer. Set this to true if your EKS cluster is 1.25+
+   * Whether to use kubectl v1.30 or not for the lambda layer. Set this to true if your EKS cluster is 1.28+
    *
    * @default false
    */
-  readonly usev125?: boolean;
+  readonly usev130?: boolean;
   /**
-   * Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.27+
+   * Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.26+
    *
    * @default false
    */
@@ -84,8 +84,8 @@ export class KubectlFunction extends Construct {
     this.handler.addLayers(new AwsCliLayer(this, 'AwsCliLayer'));
     if (props.usev128) {
       this.handler.addLayers(new KubectlV28Layer(this, 'KubectlLayer'));
-    } else if (props.usev125) {
-      this.handler.addLayers(new KubectlV25Layer(this, 'KubectlLayer'));
+    } else if (props.usev130) {
+      this.handler.addLayers(new KubectlV30Layer(this, 'KubectlLayer'));
     } else {
       this.handler.addLayers(new KubectlLayer(this, 'KubectlLayer'));
     }
