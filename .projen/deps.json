@@ -66,12 +66,12 @@
     },
     {
       "name": "jsii-rosetta",
-      "version": "^5.0.7",
+      "version": "^5.8.0",
       "type": "build"
     },
     {
       "name": "jsii",
-      "version": "^5.0.7",
+      "version": "^5.8.0",
       "type": "build"
     },
     {
@@ -95,6 +95,10 @@
       "type": "peer"
     },
     {
+      "name": "@aws-cdk/lambda-layer-kubectl-v31",
+      "type": "peer"
+    },
+    {
       "name": "aws-cdk-lib",
       "version": "^2.133.0",
       "type": "peer"
@@ -110,6 +114,10 @@
     },
     {
       "name": "@aws-cdk/lambda-layer-kubectl-v30",
+      "type": "runtime"
+    },
+    {
+      "name": "@aws-cdk/lambda-layer-kubectl-v31",
       "type": "runtime"
     }
   ],
