@@ -106,7 +106,7 @@ export class KubectlFunction extends Construct {
       this.handler.addLayers(new KubectlV28Layer(this, 'KubectlLayer'));
     } else if (props.usev130) {
       this.handler.addLayers(new KubectlV30Layer(this, 'KubectlLayer'));
-    } else {
+    } else if (!props.kubectlLayer) {
       this.handler.addLayers(new KubectlV31Layer(this, 'KubectlLayer'));
     }
 
