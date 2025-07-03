@@ -2,7 +2,7 @@ const { awscdk, javascript } = require('projen');
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'Matthew Bonig',
   authorAddress: 'matthew.bonig@defiance.ai',
-  cdkVersion: '2.133.0',
+  cdkVersion: '2.200.0',
   defaultReleaseBranch: 'main',
   licensed: false,
   depsUpgrade: false,
