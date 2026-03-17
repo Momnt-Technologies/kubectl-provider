@@ -1,3 +1,4 @@
+import { KubectlV34Layer } from '@aws-cdk/lambda-layer-kubectl-v34';
 import { App, DockerImage, Duration, Stack } from 'aws-cdk-lib';
 import { Template } from 'aws-cdk-lib/assertions';
 import { Vpc } from 'aws-cdk-lib/aws-ec2';
@@ -64,7 +65,7 @@ describe('LambdaFunction', () => {
     expect(resource).toMatchSnapshot();
   });
 
-  test('Uses v1.30 support', () => {
+  test('Custom kubectlLayer', () => {
     const app = new App();
     const stack = new Stack(app, 'test');
 
@@ -73,32 +74,14 @@ describe('LambdaFunction', () => {
       vpcId: 'vpc-123123',
       availabilityZones: ['us-east-1a'],
     });
+
+    const customLayer = new KubectlV34Layer(stack, 'CustomKubectlLayer');
+
     new KubectlFunction(stack, 'TestFunction', {
       roleArn: 'somerolearn',
       clusterName: 'somecluster',
       vpc: testVpc,
-      usev130: true,
-    });
-    const assert = Template.fromStack(stack);
-
-    const resource = assert.findResources('AWS::Lambda::Function');
-    expect(resource).toMatchSnapshot();
-  });
-
-  test('Uses v1.28 support', () => {
-    const app = new App();
-    const stack = new Stack(app, 'test');
-
-    const testVpc = Vpc.fromVpcAttributes(stack, 'TestVpc', {
-      privateSubnetIds: ['s-123'],
-      vpcId: 'vpc-123123',
-      availabilityZones: ['us-east-1a'],
-    });
-    new KubectlFunction(stack, 'TestFunction', {
-      roleArn: 'somerolearn',
-      clusterName: 'somecluster',
-      vpc: testVpc,
-      usev128: true,
+      kubectlLayer: customLayer,
     });
     const assert = Template.fromStack(stack);
 
