@@ -38,17 +38,12 @@ const project = new awscdk.AwsCdkConstructLibrary({
   minNodeVersion: '20',
 
 });
+project.package.addField('resolutions', {
+  'brace-expansion': '^2.0.2',
+});
+
 project.compileTask.exec('rm -rf lib/handlers/; mkdir lib/handlers/', { name: 'mkdir python handler' });
 project.compileTask.exec('cp src/handlers/*.py lib/handlers/', { name: 'copy python handler' });
 
-// Add package overrides to fix security vulnerabilities
-project.package.addField('resolutions', {
-  'form-data': '^4.0.4',
-  'brace-expansion': '^2.0.2',
-  '@babel/traverse': '^7.23.2',
-  'ws': '^7.5.10',
-  'braces': '^3.0.3',
-  'tough-cookie': '^4.1.3',
-});
 
 project.synth();
