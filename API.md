@@ -62,7 +62,7 @@ Returns a string representation of this construct.
 
 ---
 
-##### ~~`isConstruct`~~ <a name="isConstruct" id="@momnt-technologies/kubectl-provider.KubectlFunction.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="@momnt-technologies/kubectl-provider.KubectlFunction.isConstruct"></a>
 
 ```typescript
 import { KubectlFunction } from '@momnt-technologies/kubectl-provider'
@@ -71,6 +71,20 @@ KubectlFunction.isConstruct(x: any)
 ```
 
 Checks if `x` is a construct.
+
+Use this method instead of `instanceof` to properly detect `Construct`
+instances, even when the construct library is symlinked.
+
+Explanation: in JavaScript, multiple copies of the `constructs` library on
+disk are seen as independent, completely different libraries. As a
+consequence, the class `Construct` in each copy of the `constructs` library
+is seen as a different class, and an instance of one class will not test as
+`instanceof` the other class. `npm install` will not create installations
+like this, but users may manually symlink construct libraries together or
+use a monorepo tool: in those cases, multiple copies of the `constructs`
+library can be accidentally installed, and `instanceof` will behave
+unpredictably. It is safest to avoid using `instanceof`, and using
+this type-testing method instead.
 
 ###### `x`<sup>Required</sup> <a name="x" id="@momnt-technologies/kubectl-provider.KubectlFunction.isConstruct.parameter.x"></a>
 
@@ -135,8 +149,6 @@ const kubectlFunctionProps: KubectlFunctionProps = { ... }
 | <code><a href="#@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.vpc">vpc</a></code> | <code>aws-cdk-lib.aws_ec2.IVpc</code> | The VPC where the Kubernetes cluster is. |
 | <code><a href="#@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.additionalParams">additionalParams</a></code> | <code>aws-cdk-lib.aws_lambda.FunctionOptions</code> | Additional parameters to pass to the Lambda function. |
 | <code><a href="#@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.kubectlLayer">kubectlLayer</a></code> | <code>aws-cdk-lib.aws_lambda.LayerVersion</code> | The KubectlLayer version to use. |
-| <code><a href="#@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.usev128">usev128</a></code> | <code>boolean</code> | Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.26+. |
-| <code><a href="#@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.usev130">usev130</a></code> | <code>boolean</code> | Whether to use kubectl v1.30 or not for the lambda layer. Set this to true if your EKS cluster is 1.28+. |
 
 ---
 
@@ -195,41 +207,9 @@ public readonly kubectlLayer: LayerVersion;
 ```
 
 - *Type:* aws-cdk-lib.aws_lambda.LayerVersion
-- *Default:* KubectlV31Layer
+- *Default:* KubectlV33Layer
 
 The KubectlLayer version to use.
-
-Cannot be used in conjunction with usev128 or usev130
-
----
-
-##### ~~`usev128`~~<sup>Optional</sup> <a name="usev128" id="@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.usev128"></a>
-
-- *Deprecated:* Use kubectlLayer instead
-
-```typescript
-public readonly usev128: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Whether to use kubectl v1.28 or not for the lambda layer. Set this to true if your EKS cluster is 1.26+.
-
----
-
-##### ~~`usev130`~~<sup>Optional</sup> <a name="usev130" id="@momnt-technologies/kubectl-provider.KubectlFunctionProps.property.usev130"></a>
-
-- *Deprecated:* Use kubectlLayer instead
-
-```typescript
-public readonly usev130: boolean;
-```
-
-- *Type:* boolean
-- *Default:* false
-
-Whether to use kubectl v1.30 or not for the lambda layer. Set this to true if your EKS cluster is 1.28+.
 
 ---
 

@@ -57,7 +57,7 @@
     },
     {
       "name": "jsii-docgen",
-      "version": "^10.5.0",
+      "version": "^10.8.0",
       "type": "build"
     },
     {
@@ -66,12 +66,12 @@
     },
     {
       "name": "jsii-rosetta",
-      "version": "^5.8.0",
+      "version": "^5.9.14",
       "type": "build"
     },
     {
       "name": "jsii",
-      "version": "^5.8.0",
+      "version": "^5.9.14",
       "type": "build"
     },
     {
@@ -87,20 +87,20 @@
       "type": "build"
     },
     {
-      "name": "@aws-cdk/lambda-layer-kubectl-v28",
+      "name": "@aws-cdk/lambda-layer-kubectl-v33",
       "type": "peer"
     },
     {
-      "name": "@aws-cdk/lambda-layer-kubectl-v30",
+      "name": "@aws-cdk/lambda-layer-kubectl-v34",
       "type": "peer"
     },
     {
-      "name": "@aws-cdk/lambda-layer-kubectl-v31",
+      "name": "@aws-cdk/lambda-layer-kubectl-v35",
       "type": "peer"
     },
     {
       "name": "aws-cdk-lib",
-      "version": "^2.200.0",
+      "version": "^2.224.0",
       "type": "peer"
     },
     {
@@ -109,15 +109,15 @@
       "type": "peer"
     },
     {
-      "name": "@aws-cdk/lambda-layer-kubectl-v28",
+      "name": "@aws-cdk/lambda-layer-kubectl-v33",
       "type": "runtime"
     },
     {
-      "name": "@aws-cdk/lambda-layer-kubectl-v30",
+      "name": "@aws-cdk/lambda-layer-kubectl-v34",
       "type": "runtime"
     },
     {
-      "name": "@aws-cdk/lambda-layer-kubectl-v31",
+      "name": "@aws-cdk/lambda-layer-kubectl-v35",
       "type": "runtime"
     }
   ],
