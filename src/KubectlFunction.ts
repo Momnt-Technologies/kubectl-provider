@@ -50,7 +50,7 @@ export class KubectlFunction extends Construct {
     this.handler = new Function(this, 'KubectlProvider', {
       code: Code.fromAsset(path.join(__dirname, 'handlers')),
       handler: 'index.handler',
-      runtime: Runtime.PYTHON_3_10,
+      runtime: Runtime.PYTHON_3_13,
       environment: {
         CLUSTER_NAME: props.clusterName,
         ROLE_ARN: props.roleArn,
@@ -80,7 +80,6 @@ export class KubectlFunction extends Construct {
     } else {
       this.handler.addLayers(new KubectlV33Layer(this, 'KubectlLayer'));
     }
-
 
     new CfnOutput(this, 'SecurityGroupForLambda', {
       value: this.handler.connections.securityGroups[0].securityGroupId,

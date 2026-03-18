@@ -88,4 +88,4 @@ def kubectl(commands):
         else:
             logger.info(output)
             return output
-    raise Exception('Operation failed after %s attempts: %s' % maxAttempts, output)
+    raise Exception('Operation failed after %s attempts: %s' % (maxAttempts, output))

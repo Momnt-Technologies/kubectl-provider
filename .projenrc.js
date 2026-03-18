@@ -12,7 +12,6 @@ const project = new awscdk.AwsCdkConstructLibrary({
   description: 'A Lambda function kubectl commands against an EKS repository',
   devDeps: [
     'eslint',
-    'jsii-pacmak@^1.120.0',
     'jsii-rosetta@^5.9.14',
     'jsii-docgen@^10.8.0',
   ],
