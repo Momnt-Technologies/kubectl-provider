@@ -33,8 +33,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   npmRegistryUrl: 'https://npm.pkg.github.com',
   npmAccess: javascript.NpmAccess.PUBLIC,
   jsiiVersion: '^5.9.14',
-  nodeVersion: '^20',
-  minNodeVersion: '20',
+  minNodeVersion: '22.23.4',
 
 });
 project.package.addField('resolutions', {
